@@ -37,69 +37,46 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
 
         let totalExpenses = document.getElementById('total-expenses');
         let totalExpensesNumber = getInnerTextNumber('total-expenses');
-        totalExpensesNumber = totalExpensesNumber + totalCostNumber;
+        totalExpensesNumber = totalCostNumber;
         totalExpenses.innerText = totalExpensesNumber;
-        let totalIncomeNumber = getInputvalue('total-income');
 
+        let totalIncomeNumber = getInputvalue('total-income');
         let balanceNumber = getInnerTextNumber('balance');
 
-        balanceNumber = totalIncomeNumber - (balanceNumber + totalExpensesNumber);
+        balanceNumber = totalIncomeNumber + totalExpensesNumber;
         balance.innerText = balanceNumber;
+
+        // document.getElementById('food-cost').value = '';
+        // document.getElementById('rent-cost').value = '';
+        // document.getElementById('cloths-cost').value = '';
     }
     else{
         console.log('helloe')
     }
-    // get total expenses value 
-    // let totalExpenses = document.getElementById('total-expenses');
-    // const totalExpensesText = totalExpenses.innerText;
-    // let totalExpensesNumber = parseFloat(totalExpensesText);
-    // let totalExpensesNumber = getInnerTextNumber('total-expenses');
+    
 
-    // totalExpensesNumber = totalExpensesNumber + totalCostNumber;
-    // totalExpenses.innerText = totalExpensesNumber;
-
-    // get remaining balance 
-    // const totalIncome = document.getElementById('total-income')
-    // const totalIncomeText = totalIncome.value;
-    // let totalIncomeNumber = parseFloat(totalIncomeText);
-    // let totalIncomeNumber = getInputvalue('total-income')
-
-    // const balance = document.getElementById('balance');
-    // const balanceText = balance.innerText;
-    // let balanceNumber = parseFloat(balanceText);
-    // let balanceNumber = getInnerTextNumber('balance');
-
-    // balanceNumber = totalIncomeNumber - (balanceNumber + totalExpensesNumber);
-    // balance.innerText = balanceNumber;
-  
-
-    document.getElementById('food-cost').value = '';
-    document.getElementById('rent-cost').value = '';
-    document.getElementById('cloths-cost').value = '';
 });
 
 // handling save button click handler 
 document.getElementById('save-btn').addEventListener('click', function(){
-    const percentageInput = document.getElementById('percentage');
-    const percentageText = percentageInput.value;
-    const percentageNumber = parseFloat(percentageText);
+    const percentageNumber = getInputvalue('percentage');
+    const totalIncomeNumber = getInputvalue('total-income');
 
-    const totalIncome = document.getElementById('total-income')
-    const totalIncomeText = totalIncome.value;
-    let totalIncomeNumber = parseFloat(totalIncomeText);
-
+    if(0 < percentageNumber <= 100 && totalIncomeNumber > 0){
     let totalSaving = (percentageNumber * totalIncomeNumber) / 100;
     const savingAmount = document.getElementById('saving-amount');
-   
-    //remaining balance
-    const remainingBalance = document.getElementById('remaining-balance');
-
-    const balanceInput = document.getElementById('balance');
-    const balanceText = balanceInput.innerText;
-    let balanceNumber = parseFloat(balanceText);
-    remainingBalance.innerText =  balanceNumber - savingAmount;
     savingAmount.innerText = totalSaving;
+   
+    //remaining balance calculate
+    let remainingBalance = getInnerTextNumber('remaining-balance');
+    let balanceNumber = getInnerTextNumber('balance');
+    remainingBalance = balanceNumber - totalSaving;
 
+    // set remaining balance 
+    document.getElementById('remaining-balance').innerText = remainingBalance;
+    }
+    else{
+        console.log('hi')
+    }
 
-    percentageInput.value = '';
 })
