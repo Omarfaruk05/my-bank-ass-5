@@ -14,21 +14,10 @@ function getInnerTextNumber(id){
 
 // handling calculate button click handler
 document.getElementById('calculate-btn').addEventListener('click', function(){
-     // get food rent cloths values 
-    //  const foodCost = document.getElementById('food-cost')
-    //  const foodCostText = foodCost.value;
-    //  const foodCostNumber = parseFloat(foodCostText);
     const foodCostNumber = getInputvalue('food-cost');
 
-
-    //  const rentCost = document.getElementById('rend-cost')
-    //  const rentCostText = rentCost.value;
-    //  const rentCostNumber = parseFloat(rentCostText);
     const rentCostNumber = getInputvalue('rent-cost');
 
-    //  const clothsCost = document.getElementById('cloths-cost')
-    //  const clothsCostText = clothsCost.value;
-    //  const clothsCostNumber = parseFloat(clothsCostText);
     const clothsCostNumber = getInputvalue('cloths-cost');
      
      //for total expenses
