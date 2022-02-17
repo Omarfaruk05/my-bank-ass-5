@@ -10,3 +10,10 @@ header h1 {
   color: white;
   font-weight: 500;
 }
+#negative-alert-1,
+#string-alert,
+#bigger-expenses,
+#negative-alert-2,
+#bigger-saving {
+  display: none;
+}

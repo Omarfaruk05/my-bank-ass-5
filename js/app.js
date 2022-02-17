@@ -33,50 +33,75 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
      
      //for total expenses
     if(isNaN(foodCostNumber) == false && isNaN(rentCostNumber) == false && isNaN(clothsCostNumber) == false){
-        var totalCostNumber = foodCostNumber + rentCostNumber + clothsCostNumber;
+        if(foodCostNumber >= 0 && rentCostNumber >= 0 &&        clothsCostNumber >= 0){
+            let totalIncomeNumber = getInputvalue('total-income');
+            var totalCostNumber = foodCostNumber + rentCostNumber + clothsCostNumber;
+            if(totalCostNumber < totalIncomeNumber){
+                let totalExpenses = document.getElementById('total-expenses');
+                let totalExpensesNumber = getInnerTextNumber('total-expenses');
+                 totalExpensesNumber = totalCostNumber;
+                totalExpenses.innerText = totalExpensesNumber;
+    
+                let balanceNumber = getInnerTextNumber('balance');
+    
+                balanceNumber = totalIncomeNumber - totalExpensesNumber;
+                balance.innerText = balanceNumber;
 
-        let totalExpenses = document.getElementById('total-expenses');
-        let totalExpensesNumber = getInnerTextNumber('total-expenses');
-        totalExpensesNumber = totalCostNumber;
-        totalExpenses.innerText = totalExpensesNumber;
-
-        let totalIncomeNumber = getInputvalue('total-income');
-        let balanceNumber = getInnerTextNumber('balance');
-
-        balanceNumber = totalIncomeNumber + totalExpensesNumber;
-        balance.innerText = balanceNumber;
-
-        // document.getElementById('food-cost').value = '';
-        // document.getElementById('rent-cost').value = '';
-        // document.getElementById('cloths-cost').value = '';
+                const biggerExpenses = document.getElementById('bigger-expenses');
+                biggerExpenses.style.display = 'none';
+            }
+            else{
+                const biggerExpenses = document.getElementById('bigger-expenses');
+                biggerExpenses.style.display = 'block';
+            } 
+            const negativeAlert1 = document.getElementById('negative-alert-1');
+            negativeAlert1.style.display = 'none';        
+        }
+        else{
+            const negativeAlert1 = document.getElementById('negative-alert-1');
+            negativeAlert1.style.display = 'block';
+        }
+        const stringAlert = document.getElementById('string-alert');
+        stringAlert.style.display = 'none';
     }
     else{
-        console.log('helloe')
+        const stringAlert = document.getElementById('string-alert');
+        stringAlert.style.display = 'block';
     }
-    
-
 });
 
 // handling save button click handler 
 document.getElementById('save-btn').addEventListener('click', function(){
     const percentageNumber = getInputvalue('percentage');
     const totalIncomeNumber = getInputvalue('total-income');
-
-    if(0 < percentageNumber <= 100 && totalIncomeNumber > 0){
-    let totalSaving = (percentageNumber * totalIncomeNumber) / 100;
-    const savingAmount = document.getElementById('saving-amount');
-    savingAmount.innerText = totalSaving;
-   
-    //remaining balance calculate
     let remainingBalance = getInnerTextNumber('remaining-balance');
     let balanceNumber = getInnerTextNumber('balance');
-    remainingBalance = balanceNumber - totalSaving;
 
-    // set remaining balance 
-    document.getElementById('remaining-balance').innerText = remainingBalance;
+    if(percentageNumber >= 0){
+        let totalSaving = (percentageNumber * totalIncomeNumber) / 100;
+        if(balanceNumber > totalSaving){           
+            const savingAmount = document.getElementById('saving-amount');
+            savingAmount.innerText = totalSaving;
+           
+            //remaining balance calculate
+            remainingBalance = balanceNumber - totalSaving;
+        
+            // set remaining balance 
+            document.getElementById('remaining-balance').innerText = remainingBalance;
+
+            const biggerSaving = document.getElementById('bigger-saving');
+            biggerSaving.style.display = 'none';
+        }
+        else{
+            const biggerSaving = document.getElementById('bigger-saving');
+            biggerSaving.style.display = 'block';
+        }
+        const negativeAlert2 = document.getElementById('negative-alert-2');
+        negativeAlert2.style.display = 'none';
     }
     else{
-        console.log('hi')
+        const negativeAlert2 = document.getElementById('negative-alert-2');
+        negativeAlert2.style.display = 'block';
     }
 
 })
