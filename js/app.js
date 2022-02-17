@@ -10,7 +10,14 @@ function getInnerTextNumber(id){
     const innerTextNumber = parseFloat(innerText);
     return innerTextNumber; 
 }
-
+function forDidplayNone(id){
+    const element = document.getElementById(id);
+    element.style.display = 'none';
+}
+function forDidplayBlock(id){
+    const element = document.getElementById(id);
+    element.style.display = 'block';
+}
 
 // handling calculate button click handler
 document.getElementById('calculate-btn').addEventListener('click', function(){
@@ -36,26 +43,25 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
                 balanceNumber = totalIncomeNumber - totalExpensesNumber;
                 balance.innerText = balanceNumber;
 
-                const biggerExpenses = document.getElementById('bigger-expenses');
-                biggerExpenses.style.display = 'none';
+ 
+                forDidplayNone('bigger-expenses')
             }
             else{
-                const biggerExpenses = document.getElementById('bigger-expenses');
-                biggerExpenses.style.display = 'block';
+
+                forDidplayBlock('bigger-expenses')
             } 
-            const negativeAlert1 = document.getElementById('negative-alert-1');
-            negativeAlert1.style.display = 'none';        
+            forDidplayNone('negative-alert-1')       
         }
         else{
-            const negativeAlert1 = document.getElementById('negative-alert-1');
-            negativeAlert1.style.display = 'block';
+
+            forDidplayBlock('negative-alert-1')
         }
-        const stringAlert = document.getElementById('string-alert');
-        stringAlert.style.display = 'none';
+;
+        forDidplayNone('string-alert')
     }
     else{
-        const stringAlert = document.getElementById('string-alert');
-        stringAlert.style.display = 'block';
+;
+        forDidplayBlock('string-alert')
     }
 });
 
@@ -78,19 +84,18 @@ document.getElementById('save-btn').addEventListener('click', function(){
             // set remaining balance 
             document.getElementById('remaining-balance').innerText = remainingBalance;
 
-            const biggerSaving = document.getElementById('bigger-saving');
-            biggerSaving.style.display = 'none';
+            forDidplayNone('bigger-saving');
         }
         else{
-            const biggerSaving = document.getElementById('bigger-saving');
-            biggerSaving.style.display = 'block';
+
+            forDidplayBlock('bigger-saving')
         }
-        const negativeAlert2 = document.getElementById('negative-alert-2');
-        negativeAlert2.style.display = 'none';
+;
+        forDidplayNone('negative-alert-2')
     }
     else{
-        const negativeAlert2 = document.getElementById('negative-alert-2');
-        negativeAlert2.style.display = 'block';
+
+        forDidplayBlock('negative-alert-2')
     }
 
 })
