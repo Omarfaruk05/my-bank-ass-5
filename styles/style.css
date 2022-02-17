@@ -1,0 +1,12 @@
+header h1 {
+  color: rgb(3, 186, 189);
+}
+.calculation {
+  background-color: rgb(230, 227, 227);
+}
+#calculate-btn,
+#save-btn {
+  background-color: rgb(78, 154, 221);
+  color: white;
+  font-weight: 500;
+}
