@@ -1,15 +1,18 @@
 header h1 {
   color: rgb(3, 186, 189);
 }
+/* calculation part  */
 .calculation {
   background-color: rgb(230, 227, 227);
 }
+/* button  */
 #calculate-btn,
 #save-btn {
   background-color: rgb(78, 154, 221);
   color: white;
   font-weight: 500;
 }
+/* error message  */
 #negative-alert-1,
 #string-alert,
 #bigger-expenses,

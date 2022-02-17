@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bank</title>
-    <!-- coustom css  -->
+    <!-- coustom css link  -->
     <link rel="stylesheet" href="styles/style.css">
-   <!-- CSS only -->
+   <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
@@ -18,19 +18,22 @@
         <div class="container">
             <div class="row mx">
                 <div class="col-md-6 col-sm-12 mt-2">
+                    <!-- bank-photo  -->
                     <div class="mx-3 mb-5">
                         <img width="100%" height="670px" src="images/bank-photo.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 mt-2">
                     <div class=" mx-3 p-4 mb-5 calculation">
+                        <!-- income part  -->
                         <div class="">
                             <h3 class="w-100 text-center mb-3">Income</h3>
                             <div class="mb-3 d-flex align-items-center">
                                 <span>Income:</span>
                                 <input type="text" class="form-control ms-2" id="total-income" placeholder="00" >
-                              </div>
+                            </div>
                         </div>
+                        <!-- expexses part  -->
                         <div class="">
                             <h3 class="w-100 text-center mb-3">Expenses</h3>
                             <div class="mb-3 d-flex align-items-center">
@@ -46,33 +49,38 @@
                                 <input type="text" class="form-control ms-2" id="cloths-cost" placeholder="00" >
                             </div>
                         </div>
+                        <!-- calculate button  -->
                         <div class="text-center mt-4">
                             <button id="calculate-btn" class="btn px-5">Calculate </button>
                         </div>
+                        <!-- error message  -->
                         <div class="text-center">
                             <small id="negative-alert-1" class="text-danger">You can't enter negative value. Please enter positive value.</small>
                             <small id="string-alert" class="text-danger">You can't enter string. Please enter positive value.</small>
                             <small id="bigger-expenses" class="text-danger">You can't spend more than you earn. </small>
                         </div>
+                        <!-- expenses and balance output part  -->
                         <div class="text-center my-4">
                             <h5 class="mb-3">Total Expenses:<span id="total-expenses" class="ms-2">00</span></h5>
                             <h5>Balance:<span id="balance" class="ms-2">00</span></h5>
                         </div>
+                        <!-- percentage and save button here  -->
                         <div class="d-flex justify-content-center align-items-center">
                             <span>Save:</span>
                             <input type="text" class="form-control mx-2" id="percentage" placeholder="00" >
                             <span>%</span>
                             <button id="save-btn" class="btn ms-2 w-100">Save</button>
                         </div>
+                        <!-- anoteher error message  -->
                         <div class="text-center">
                             <small id="bigger-saving" class="text-danger">you can't save more than you have.</small>
                             <small id="negative-alert-2" class="text-danger">Please enter positive value under hundred.</small>
 
                         </div>
+                        <!-- saving and remaining amount output part  -->
                         <div class="text-center my-4">
                             <h5 class="mb-3">Saving Amount:<span id="saving-amount" class="ms-2">00</span></h5>
                             <h5>Remaining Balance:<span id="remaining-balance" class="ms-2">00</span></h5>
-
                         </div>
                     </div>
                 </div>
@@ -80,8 +88,10 @@
             </div>
         </div>
     </main>
+    <!-- javascript  -->
     <script src="js/app.js"></script>
 </body>
 </html>
 
 <!-- https://github.com/Porgramming-Hero-web-course/money-master-Omarfaruk05  -->
+<!-- https://laughing-curie-495e9b.netlify.app/  -->
